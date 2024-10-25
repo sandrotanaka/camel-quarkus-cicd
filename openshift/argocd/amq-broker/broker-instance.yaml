@@ -1,0 +1,28 @@
+apiVersion: broker.amq.io/v1beta1
+kind: ActiveMQArtemis
+metadata:
+  name: amq-broker-instance
+spec:
+  deploymentPlan:
+    storage:
+      size: "1Gi"  
+      storageClassName: gp2-csi
+    image: placeholder
+    jolokiaAgentEnabled: false
+    journalType: nio
+    managementRBACEnabled: true
+    messageMigration: true
+    persistenceEnabled: true
+    requireLogin: false
+    size: 2
+    ha: false
+    redundancyStrategy: replication
+  acceptors:
+    - name: "amqp"
+      protocols: "AMQP"
+      port: 5672
+      sslEnabled: false
+  console:
+    expose: true
+  adminPassword: 'redhat#123'
+  adminUser: admin

@@ -23,7 +23,6 @@ spec:
       containers:
         - name: fruits
           imagePullPolicy: IfNotPresent
-          #image: quay.io/siamaksade/fruits:latest
           image: image-registry.openshift-image-registry.svc:5000/demo-pipelines/camel-quarkus-cicd:development
           ports:
           - containerPort: 8080

@@ -1,0 +1,12 @@
+apiVersion: broker.amq.io/v1beta1
+kind: ActiveMQArtemisAddress
+metadata:
+  name: broker-queue-address
+spec:
+  queueConfiguration:
+    durable: true
+    enabled: true
+    temporary: false
+  addressName: demoAddress
+  queueName: demoQueue
+  routingType: anycast
