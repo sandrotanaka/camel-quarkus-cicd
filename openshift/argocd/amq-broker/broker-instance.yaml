@@ -14,7 +14,6 @@ spec:
     persistenceEnabled: true
     requireLogin: false
     size: 2
-    ha: false
     redundancyStrategy: replication
   acceptors:
     - name: "amqp"
