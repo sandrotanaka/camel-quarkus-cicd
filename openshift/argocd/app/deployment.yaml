@@ -4,13 +4,12 @@ metadata:
   annotations:
   labels:
     app: fruits
-    app.kubernetes.io/component: web
+    app.kubernetes.io/component: fruits
     app.kubernetes.io/instance: fruits
     app.kubernetes.io/name: fruits
     app.kubernetes.io/part-of: fruits
-    app.openshift.io/runtime: java
+    app.openshift.io/runtime: camel
   name: fruits
-  namespace: demo-pipelines
 spec:
   replicas: 1
   selector:
@@ -22,30 +21,13 @@ spec:
         app: fruits
     spec:
       containers:
-      - name: fruits
-        imagePullPolicy: Always
-        #image: quay.io/siamaksade/fruits:latest
-        image: image-registry.openshift-image-registry.svc:5000/demo-pipelines/camel-quarkus-cicd:development
-        livenessProbe:
-          failureThreshold: 3
-          httpGet:
-            path: /
-            port: 8080
-            scheme: HTTP
-          initialDelaySeconds: 45
-          periodSeconds: 10
-          successThreshold: 1
-          timeoutSeconds: 1
-        ports:
-        - containerPort: 8080
-          protocol: TCP
-        readinessProbe:
-          failureThreshold: 3
-          httpGet:
-            path: /
-            port: 8080
-            scheme: HTTP
-          initialDelaySeconds: 45
-          periodSeconds: 10
-          successThreshold: 1
-          timeoutSeconds: 5
+        - name: fruits
+          imagePullPolicy: IfNotPresent
+          #image: quay.io/siamaksade/fruits:latest
+          image: image-registry.openshift-image-registry.svc:5000/demo-pipelines/camel-quarkus-cicd:development
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+      restartPolicy: Always
+  strategy:
+    type: RollingUpdate
