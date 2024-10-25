@@ -52,10 +52,12 @@ spec:
             resources:
               requests:
                 memory: 8Gi
-            image: quay.io/quarkus/ubi-quarkus-native-image:22.2.0-java17
+            #image: quay.io/quarkus/ubi-quarkus-native-image:22.2.0-java17
+            image: quay.io/quarkus/ubi-quarkus-mandrel-builder-image:24.1-java23
             workingDir: /workspace/source
             command:
               - ./mvnw
+              - clean
               - package
               - '-Pnative'
               - '-Dmaven.repo.local=$(workspaces.maven-repo.path)'
