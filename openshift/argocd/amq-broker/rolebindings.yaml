@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: argocd-activemqartemises-binding
+  namespace: amq
+subjects:
+- kind: ServiceAccount
+  name: argocd-argocd-application-controller
+  namespace: argocd
+roleRef:
+  kind: Role
+  name: argocd-activemqartemises-manager
+  apiGroup: rbac.authorization.k8s.io
