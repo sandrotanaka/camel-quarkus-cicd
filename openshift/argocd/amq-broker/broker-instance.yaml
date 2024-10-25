@@ -6,7 +6,6 @@ spec:
   deploymentPlan:
     storage:
       size: "1Gi"  
-      storageClassName: gp2-csi
     image: placeholder
     jolokiaAgentEnabled: false
     journalType: nio
