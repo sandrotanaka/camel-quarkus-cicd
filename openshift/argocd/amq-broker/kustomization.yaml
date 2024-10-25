@@ -2,3 +2,4 @@ resources:
 #  - namespace.yaml
   - broker-instance.yaml
   - address-queue.yaml
+  - address-topic.yaml
