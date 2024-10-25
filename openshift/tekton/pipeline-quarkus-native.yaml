@@ -80,3 +80,16 @@ spec:
       workspaces:
         - name: source
           workspace: shared-workspace
+    - name: build-tag
+      runAfter:
+        - build-image
+      taskRef:
+        kind: ClusterTask
+        name: openshift-client
+      params:
+        - name: SCRIPT
+          value: >-
+            oc tag $(params.IMAGE):$(params.git-revision)
+            $(params.IMAGE):development
+        - name: VERSION
+          value: latest

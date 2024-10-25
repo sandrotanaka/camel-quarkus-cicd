@@ -24,8 +24,8 @@
     <groupId>com.tanaka</groupId>
     <version>1.0</version>
 
-    <name>Camel Quarkus :: Examples :: Rest Json</name>
-    <description>Camel Quarkus Example :: Rest Json</description>
+    <name>Camel Quarkus :: Demo :: Rest Json</name>
+    <description>Camel Quarkus Demonstration :: Rest Json</description>
 
     <properties>
         <quarkus.platform.version>3.15.1</quarkus.platform.version>
