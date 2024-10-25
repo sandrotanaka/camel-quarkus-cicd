@@ -4,6 +4,7 @@ metadata:
   labels:
     app: fruits
   name: fruits
+  namespace: demo-pipelines
 spec:
   ports:
   - name: 8080-tcp
