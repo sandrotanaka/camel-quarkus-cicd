@@ -69,7 +69,7 @@ spec:
     - name: build-image
       params:
         - name: IMAGE
-          value: $(params.IMAGE):$(params.git-revision)
+          value: $(params.IMAGE):development
         - name: DOCKERFILE
           value: $(params.DOCKERFILE)
       runAfter:
@@ -80,16 +80,3 @@ spec:
       workspaces:
         - name: source
           workspace: shared-workspace
-    - name: build-tag
-      runAfter:
-        - build-image
-      taskRef:
-        kind: ClusterTask
-        name: openshift-client
-      params:
-        - name: SCRIPT
-          value: >-
-            oc tag $(params.IMAGE):$(params.git-revision)
-            $(params.IMAGE):development
-        - name: VERSION
-          value: latest

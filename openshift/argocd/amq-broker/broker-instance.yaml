@@ -13,7 +13,7 @@ spec:
     messageMigration: true
     persistenceEnabled: true
     requireLogin: false
-    size: 2
+    size: 1
   acceptors:
     - name: "amqp"
       protocols: "AMQP"
