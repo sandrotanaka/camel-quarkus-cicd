@@ -3,6 +3,11 @@ kind: ActiveMQArtemisAddress
 metadata:
   name: broker-topic-address
 spec:
+  queueConfiguration:
+    durable: true
+    enabled: true
+    temporary: false
   addressName: demoTopicAddress
+  queueName: demoTopic
   routingType: multicast
   removeFromBrokerOnDelete: true
